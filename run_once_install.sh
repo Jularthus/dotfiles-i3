@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo -e "\e[1;31mInstalling: All packages\e[0m"
 nix profile install nixpkgs#polybar\
                     nixpkgs#fastfetch\
@@ -29,5 +31,6 @@ echo -e "\033[1mDISABLED FOR NOW ; USE fortuneStart INSTEAD\033[0m"
 # launch polybar
 echo -e "\e[1;31mKilling i3bar\e[0m"
 killall i3bar
+killall polybar
 echo -e "\e[1;31mLaunching: Polybar\e[0m"
-polybar &
+polybar >/dev/null 2>&1 &
