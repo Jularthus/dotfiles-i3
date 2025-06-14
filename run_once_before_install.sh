@@ -52,7 +52,7 @@ install_fonts() {
 
 apply_wallpaper() {
   echo -e "\e[1;31mApplying: Wallpaper\e[0m"
-  feh --no-fehbg --bg-scale ~/.config/wallpaper/leaves2.png
+  feh --no-fehbg --bg-scale $HOME/.local/share/chezmoi/dot_config/wallpaper/leaves2.png
 }
 
 install_ohmyzsh() {
