@@ -38,7 +38,7 @@ install_packages() {
     rm ./gitkraken-amd64.rpm
 
     # bob nvim manual
-    cargo install --git https://github.com/MordechaiHadad/bob.git ; bob install 0.10.4 ; bob use 0.10.4
+    cargo install --git https://github.com/MordechaiHadad/bob.git ; $HOME/.cargo/bin/bob install 0.10.4 ; $HOME/.cargo/bin/bob use 0.10.4
 
     # lunarvim manual
     LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
