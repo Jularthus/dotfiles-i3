@@ -200,3 +200,4 @@ default_floating_border pixel 0
 #wallpaper
 # exec --no-startup-id /run/current-system/sw/bin/feh --no-fehbg --bg-scale ~/.config/wallpaper/leaves2.png
 
+# ceci est un test
