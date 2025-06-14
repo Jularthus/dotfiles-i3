@@ -20,6 +20,7 @@ install_packages() {
   if $IS_NIX; then
     nix profile install nixpkgs#polybar \
                         nixpkgs#zsh\
+                        nixpkgs#kitty
                         nixpkgs#fastfetch \
                         nixpkgs#bat \
                         nixpkgs#nodejs \
@@ -28,7 +29,7 @@ install_packages() {
                         nixpkgs#ranger \
                         nixpkgs#gitkraken
   elif $IS_FEDORA; then
-    sudo dnf install -y zsh polybar fastfetch bat nodejs flameshot ranger 
+    sudo dnf install -y zsh kitty polybar fastfetch bat nodejs flameshot ranger 
     wget https://release.gitkraken.com/linux/gitkraken-amd64.rpm
     sudo dnf install ./gitkraken-amd64.rpm
     rm ./gitkraken-amd64.rpm
