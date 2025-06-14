@@ -11,6 +11,10 @@ launch_picom() {
   nohup picom >/dev/null 2>&1 &
 }
 
+kill_terminal() {
+  killall xfce4-terminal alacritty
+}
+
 launch_polybar
 launch_picom
 
