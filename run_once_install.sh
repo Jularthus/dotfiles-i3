@@ -43,9 +43,9 @@ install_fonts() {
     nix profile install --expr 'with builtins.getFlake("flake:nixpkgs"); legacyPackages.x86_64-linux.nerdfonts.override { fonts = ["JetBrainsMono"]; }' --impure
   elif $IS_FEDORA; then
     echo "NEED SUDO FOR INSTALLING FONTS"
-    sudo mkdir -p /usr/local/share/fonts/JetBrainsMono/
+    mkdir -p $HOME/.local/share/fonts/JetBrainsMono/
     curl -L "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip" -o /tmp/JetBrainsMono.zip
-    sudo unzip /tmp/JetBrainsMono.zip -d /usr/local/fonts/JetBrainsMono/
+    unzip /tmp/JetBrainsMono.zip -d $HOME/.local/fonts/JetBrainsMono/
     # echo "MANUALLY INSTALL THROUGH : https://www.nerdfonts.com/font-downloads"
   fi
 }
