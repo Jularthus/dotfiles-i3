@@ -1,3 +1,5 @@
+#!/bin/bash
+
 launch_polybar() {
   echo -e "\e[1;31mRestarting: Polybar (and killing i3bar)\e[0m"
   killall i3bar polybar 2>/dev/null
