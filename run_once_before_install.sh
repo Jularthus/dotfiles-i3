@@ -70,7 +70,6 @@ mount_fortune() {
 
 launch_polybar() {
   echo -e "\e[1;31mRestarting: Polybar (and killing i3bar)\e[0m"
-  i3 restart
   killall i3bar polybar 2>/dev/null
   nohup polybar >/dev/null 2>&1 &
 }
@@ -87,3 +86,6 @@ install_ohmyzsh
 mount_fortune
 launch_polybar
 launch_picom
+
+i3 restart
+exit
