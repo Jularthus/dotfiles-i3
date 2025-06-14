@@ -29,9 +29,9 @@ install_packages() {
                         nixpkgs#ranger \
                         nixpkgs#gitkraken
   elif $IS_FEDORA; then
-    sudo dnf install -y zsh kitty polybar fastfetch bat nodejs flameshot ranger 
+    sudo dnf install -y zsh kitty git polybar fastfetch bat nodejs flameshot ranger 
     wget https://release.gitkraken.com/linux/gitkraken-amd64.rpm
-    sudo dnf install ./gitkraken-amd64.rpm
+    sudo dnf install -y ./gitkraken-amd64.rpm
     rm ./gitkraken-amd64.rpm
     # lunarvim : installation manuelle ?
   fi
@@ -45,7 +45,7 @@ install_fonts() {
     echo "NEED SUDO FOR INSTALLING FONTS"
     mkdir -p $HOME/.local/share/fonts/JetBrainsMono/
     curl -L "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip" -o /tmp/JetBrainsMono.zip
-    unzip /tmp/JetBrainsMono.zip -d $HOME/.local/fonts/JetBrainsMono/
+    unzip /tmp/JetBrainsMono.zip -d $HOME/.local/share/fonts/JetBrainsMono/
     # echo "MANUALLY INSTALL THROUGH : https://www.nerdfonts.com/font-downloads"
   fi
 }
