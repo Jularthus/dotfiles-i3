@@ -30,11 +30,18 @@ install_packages() {
                         nixpkgs#ranger \
                         nixpkgs#gitkraken
   elif $IS_FEDORA; then
-    sudo dnf install -y zsh kitty git picom polybar fastfetch bat nodejs flameshot ranger 
+    sudo dnf install -y zsh kitty git picom polybar fastfetch bat nodejs flameshot ranger cargo
+
+    # gitkraken manual
     wget https://release.gitkraken.com/linux/gitkraken-amd64.rpm
     sudo dnf install -y ./gitkraken-amd64.rpm
     rm ./gitkraken-amd64.rpm
-    # lunarvim : installation manuelle ?
+
+    # bob nvim manual
+    cargo install --git https://github.com/MordechaiHadad/bob.git ; bob install 0.10.4 ; bob use 0.10.4
+
+    # lunarvim manual
+    LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
   fi
 }
 
