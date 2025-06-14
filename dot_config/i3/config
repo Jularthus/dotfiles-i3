@@ -51,7 +51,7 @@ bindsym $mod+Return exec kitty || i3-sensible-terminal
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+enter exec --no-startup-id dmenu_run -fn 'JetBrains Mono-9' -nb '#1e1e1e' -sf '#1e1e1e' -sb '#00fa36' -nf '#00fa36' 
+bindsym $mod+space exec --no-startup-id dmenu_run -fn 'JetBrains Mono-9' -nb '#1e1e1e' -sf '#1e1e1e' -sb '#00fa36' -nf '#00fa36' 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 
