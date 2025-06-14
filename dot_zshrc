@@ -37,7 +37,9 @@ alias cdocker="docker run -it --rm -v $(pwd):/app c-dev-zsh-environment"
 
 alias config='/usr/bin/git --git-dir=/Users/jularthus/.config.git/ --work-tree=/Users/jularthus'
 
-export PATH=/Users/jularthus/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
 
 unsetopt nomatch
 
