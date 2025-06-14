@@ -4,8 +4,8 @@ if [ -e "$HOME/.fortune" ]; then
   file="$HOME/.config/fortune/fortune.txt"
 
   if [[ ! -s "$file" ]]; then
-    # shuf -n 1 "$HOME/.config/fortune/fixedFortune.txt"
-    echo ""
+    shuf -n 1 "$HOME/.config/fortune/fixedFortune.txt"
+    # echo ""
     exit 0
   fi
 
