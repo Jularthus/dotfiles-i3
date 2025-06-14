@@ -23,13 +23,14 @@ install_packages() {
                         nixpkgs#kitty
                         nixpkgs#fastfetch \
                         nixpkgs#bat \
+                        nixpkgs#picom \
                         nixpkgs#nodejs \
                         nixpkgs#lunarvim \
                         nixpkgs#flameshot \
                         nixpkgs#ranger \
                         nixpkgs#gitkraken
   elif $IS_FEDORA; then
-    sudo dnf install -y zsh kitty git polybar fastfetch bat nodejs flameshot ranger 
+    sudo dnf install -y zsh kitty git picom polybar fastfetch bat nodejs flameshot ranger 
     wget https://release.gitkraken.com/linux/gitkraken-amd64.rpm
     sudo dnf install -y ./gitkraken-amd64.rpm
     rm ./gitkraken-amd64.rpm
@@ -46,6 +47,7 @@ install_fonts() {
     mkdir -p $HOME/.local/share/fonts/JetBrainsMono/
     curl -L "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip" -o /tmp/JetBrainsMono.zip
     unzip /tmp/JetBrainsMono.zip -d $HOME/.local/share/fonts/JetBrainsMono/
+    fc-cache -v
     # echo "MANUALLY INSTALL THROUGH : https://www.nerdfonts.com/font-downloads"
   fi
 }
@@ -68,8 +70,14 @@ mount_fortune() {
 
 launch_polybar() {
   echo -e "\e[1;31mRestarting: Polybar (and killing i3bar)\e[0m"
+  i3 restart
   killall i3bar polybar 2>/dev/null
   nohup polybar >/dev/null 2>&1 &
+}
+
+launch_picom() {
+  echo -e "\e[1;31mLaunching: Picom\e[0m"
+  nohup picom >/dev/null 2>&1 &
 }
 
 install_packages
@@ -78,3 +86,4 @@ apply_wallpaper
 install_ohmyzsh
 mount_fortune
 launch_polybar
+launch_picom
