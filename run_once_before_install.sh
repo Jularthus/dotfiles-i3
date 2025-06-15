@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ -f $HOME/.cfg ]; then 
+  exit
+fi
+
 IS_NIX=false
 IS_FEDORA=false
 

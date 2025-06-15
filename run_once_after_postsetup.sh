@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ -f $HOME/.cfg ]; then
+  exit
+fi
+
 launch_polybar() {
   echo -e "\e[1;31mRestarting: Polybar (and killing i3bar)\e[0m"
   chmod +x $HOME/.config/polybar/scripts/fortune.sh
