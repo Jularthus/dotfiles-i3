@@ -18,6 +18,5 @@ kill_terminal() {
 
 launch_polybar
 launch_picom
-kill_terminal
-
 i3 restart
+kill_terminal
