@@ -83,21 +83,8 @@ mount_fortune() {
   sshfs -o reconnect -p 8022 jularthus@jularthus.fr:/home/jularthus/AuCoin/fortune ~/.config/fortune && touch $HOME/.fortune
 }
 
-launch_polybar() {
-  echo -e "\e[1;31mRestarting: Polybar (and killing i3bar)\e[0m"
-  killall i3bar polybar 2>/dev/null
-  nohup polybar >/dev/null 2>&1 &
-}
-
-launch_picom() {
-  echo -e "\e[1;31mLaunching: Picom\e[0m"
-  nohup picom >/dev/null 2>&1 &
-}
-
 install_packages
 install_fonts
 apply_wallpaper
 install_ohmyzsh
 mount_fortune
-launch_polybar
-launch_picom
