@@ -20,7 +20,7 @@ install_packages() {
   if $IS_NIX; then
     nix profile install nixpkgs#polybar \
                         nixpkgs#zsh\
-                        nixpkgs#kitty
+                        nixpkgs#kitty \
                         nixpkgs#fastfetch \
                         nixpkgs#bat \
                         nixpkgs#picom \
@@ -31,7 +31,7 @@ install_packages() {
                         nixpkgs#gitkraken
   elif $IS_FEDORA; then
     sudo dnf install -y zsh kitty git picom polybar fastfetch bat nodejs flameshot ranger cargo neovim
-    sudo dnf remove --noautoremove neovim
+    sudo dnf remove --noautoremove -y neovim
 
     # gitkraken manual
     wget https://release.gitkraken.com/linux/gitkraken-amd64.rpm
@@ -43,7 +43,12 @@ install_packages() {
 
     # lunarvim manual
     PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
-    LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
+    curl https://raw.githubusercontent.com/LunarVim/LunarVim/refs/heads/master/utils/installer/install.sh -o /tmp/lv.sh
+    chmod +x /tmp/lv.sh
+    /tmp/lv.sh -y
+    sed -i '11s/^.\{24\}//' $HOME/.local/bin/lvim
+    # LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
+
   fi
 }
 
@@ -73,8 +78,7 @@ install_ohmyzsh() {
 
 mount_fortune() {
   echo -e "\e[1;31mInstalling: Fortune folder (sshfs from ServeurKlein)\e[0m"
-  echo -e "\033[1mDISABLED FOR NOW ; USE fortuneStart INSTEAD\033[0m"
-  # sshfs -o reconnect -p 8022 jularthus@jularthus.fr:/home/jularthus/fortune ~/.config/fortune
+  sshfs -o reconnect -p 8022 jularthus@jularthus.fr:/home/jularthus/AuCoin/fortune ~/.config/fortune && touch $HOME/.fortune
 }
 
 launch_polybar() {
@@ -95,6 +99,3 @@ install_ohmyzsh
 mount_fortune
 launch_polybar
 launch_picom
-
-i3 restart
-exit
