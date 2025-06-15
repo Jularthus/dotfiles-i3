@@ -26,12 +26,13 @@ install_packages() {
                         nixpkgs#picom \
                         nixpkgs#nodejs \
                         nixpkgs#sshfs \
+                        nixpkgs#glow \
                         nixpkgs#lunarvim \
                         nixpkgs#flameshot \
                         nixpkgs#ranger \
                         nixpkgs#gitkraken
   elif $IS_FEDORA; then
-    sudo dnf install -y zsh kitty git sshfs picom polybar fastfetch bat nodejs flameshot ranger cargo script neovim
+    sudo dnf install -y zsh kitty git sshfs picom polybar fastfetch bat nodejs glow flameshot ranger cargo script neovim
     sudo dnf remove --noautoremove -y neovim
 
     # gitkraken manual

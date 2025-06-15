@@ -18,5 +18,5 @@ kill_terminal() {
 
 launch_polybar
 launch_picom
-i3 restart ; kitty ;
+i3 restart ; kitty --detach ;
 kill_terminal
