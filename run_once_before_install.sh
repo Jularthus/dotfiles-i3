@@ -40,7 +40,7 @@ install_packages() {
     rm ./gitkraken-amd64.rpm
 
     # bob nvim manual
-    cargo install --git https://github.com/MordechaiHadad/bob.git ; $HOME/.cargo/bin/bob install 0.10.4 ; $HOME/.cargo/bin/bob use 0.10.4
+    yes | cargo install --git https://github.com/MordechaiHadad/bob.git ; $HOME/.cargo/bin/bob install 0.10.4 ; $HOME/.cargo/bin/bob use 0.10.4
 
     # lunarvim manual
     PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
@@ -79,6 +79,7 @@ install_ohmyzsh() {
 
 mount_fortune() {
   echo -e "\e[1;31mInstalling: Fortune folder (sshfs from ServeurKlein)\e[0m"
+  mkdir -p $HOME/.config/fortune/
   sshfs -o reconnect -p 8022 jularthus@jularthus.fr:/home/jularthus/AuCoin/fortune ~/.config/fortune && touch $HOME/.fortune
 }
 
