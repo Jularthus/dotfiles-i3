@@ -64,8 +64,8 @@ fs() {
   case "$action" in
     upload)
       curl -sf -F "file=@$arg" https://files.jularthus.fr/api/upload \
-          # macos                     # linux
         | tee >(pbcopy 2>/dev/null || xsel --clipboard 2>/dev/null)
+          # macos                     # linux
       ;;
     delete)
       local token
