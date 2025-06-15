@@ -78,7 +78,8 @@ install_ohmyzsh() {
 mount_fortune() {
   echo -e "\e[1;31mInstalling: Fortune folder (sshfs from ServeurKlein)\e[0m"
   mkdir -p $HOME/.config/fortune/
-  sshfs -o reconnect -p 8022 jularthus@jularthus.fr:/home/jularthus/AuCoin/fortune ~/.config/fortune && touch $HOME/.fortune
+  sshfs -o reconnect -p 8022 jularthus@jularthus.fr:/home/jularthus/AuCoin/fortune ~/.config/fortune & wait
+  touch $HOME/.fortune
 }
 
 install_packages
