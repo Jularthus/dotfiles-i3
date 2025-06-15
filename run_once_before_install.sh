@@ -4,6 +4,8 @@ if [ -f $HOME/.cfg ]; then
   exit
 fi
 
+touch $HOME/.cfg
+
 IS_NIX=false
 IS_FEDORA=false
 
