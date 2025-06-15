@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rm $HOME/.fortune ; killall polybar ; nohup polybar >/dev/null 2>&1 &
