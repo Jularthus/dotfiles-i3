@@ -11,5 +11,5 @@ if [ -e "$HOME/.fortune" ]; then
 
   IFS= read -r line <"$file"
   echo "$line"
-  tail -n 2 "$file" >"$file.tmp" && mv "$file.tmp" "$file"
+  tail -n +2 "$file" >"$file.tmp" && mv "$file.tmp" "$file"
 fi
