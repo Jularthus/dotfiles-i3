@@ -40,7 +40,7 @@ install_packages() {
     rm ./gitkraken-amd64.rpm
 
     # bob nvim manual
-    cargo install --git https://github.com/MordechaiHadad/bob.git ; $HOME/.cargo/bin/bob install 0.10.4 ; yes "n" | $HOME/.cargo/bin/bob use 0.10.4
+    cargo install --git https://github.com/MordechaiHadad/bob.git ; yes "n" | $HOME/.cargo/bin/bob install 0.10.4 ; $HOME/.cargo/bin/bob use 0.10.4
 
     # lunarvim manual
     PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
