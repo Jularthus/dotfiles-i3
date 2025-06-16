@@ -53,8 +53,8 @@ kill_terminal() {
   killall xfce4-terminal alacritty
 }
 
-varArray=('CFG_NO_POLYBAR' 'CFG_NO_PICOM' 'CFG_NO_WS_RENAMER' 'CFG_NO_KILL_TERMINAL' 'CFG_NO_FORTUNE')
-varFunc=('launch_polybar' 'launch_picom' 'launch_ws_renamer' 'kill_terminal' 'set_fortune_scripts')
+varArray=('CFG_NO_POLYBAR' 'CFG_NO_PICOM' 'CFG_NO_WS_RENAMER' 'CFG_NO_KILL_TERMINAL' 'CFG_NO_FORTUNE' 'CFG_NO_ROFI_FONTS')
+varFunc=('launch_polybar' 'launch_picom' 'launch_ws_renamer' 'kill_terminal' 'set_fortune_scripts' 'install_rofi_fonts')
 
 for i in $(seq 0 $((${#varArray[@]} - 1))); do
   varname="${varArray[$i]}"
