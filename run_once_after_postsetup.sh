@@ -43,8 +43,6 @@ for i in $(seq 0 $((${#varArray[@]} - 1))); do
   fi
 done
 
-launch_polybar
-launch_picom
-launch_ws_renamer
 i3 restart ; kitty --detach ;
-kill_terminal
+
+if [ "$CFG_NO_KILL_TERMINAL" == true ]; then kill_terminal; fi
