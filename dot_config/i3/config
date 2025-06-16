@@ -197,4 +197,4 @@ default_border pixel 0
 default_floating_border pixel 0
 
 # ws renamer
-exec --no-startup-id $HOME/.config/polybar/scripts/launch_ws_renamer.sh
+exec --no-startup-id $HOME/.config/polybar/scripts/launch_ws_renamer.sh >> ~/log_ws_renamer 2>&1
