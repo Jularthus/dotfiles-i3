@@ -22,7 +22,7 @@ install_rofi_fonts() {
 	fi
 	fc-cache
 
-  chmod +x $HOME/.config/rofi/launcher/type-2/launcher.sh
+  chmod +x $HOME/.config/rofi/launchers/type-2/launcher.sh
   chmod +x $HOME/.config/rofi/powermenu/type-4/powermenu.sh
 }
 
