@@ -8,6 +8,22 @@ touch $HOME/.cfg2
 
 source /tmp/cfg_profile
 
+install_rofi_fonts() {
+   echo -e "\e[1;31mInstalling Rofi Fonts\e[0m"
+
+   DIR=`$HOME/.config/rofi`
+FONT_DIR="$HOME/.local/share/fonts"
+
+	if [[ -d "$FONT_DIR" ]]; then
+		cp -rf $DIR/fonts/* "$FONT_DIR"
+	else
+		mkdir -p "$FONT_DIR"
+		cp -rf $DIR/fonts/* "$FONT_DIR"
+	fi
+	fc-cache
+
+}
+
 launch_polybar() {
   echo -e "\e[1;31mRestarting: Polybar (and killing i3bar)\e[0m"
   chmod +x $HOME/.config/polybar/scripts/fortune.sh
