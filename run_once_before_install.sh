@@ -46,6 +46,8 @@ install_packages() {
     sudo dnf install -y ./gitkraken-amd64.rpm
     rm ./gitkraken-amd64.rpm
 
+    if [ "$CFG_NO_LUNARVIM" != "true" ]; then
+
     # bob nvim manual
     PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
     cargo install --git https://github.com/MordechaiHadad/bob.git ; $HOME/.cargo/bin/bob install 0.10.4 ; $HOME/.cargo/bin/bob use 0.10.4
@@ -54,6 +56,8 @@ install_packages() {
     curl https://raw.githubusercontent.com/LunarVim/LunarVim/refs/heads/master/utils/installer/install.sh | bash -s -- -y
     sed -i '11s/^.\{24\}//' $HOME/.local/bin/lvim
     # LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
+    
+    fi
 
   fi
 }
