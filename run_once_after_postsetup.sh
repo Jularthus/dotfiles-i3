@@ -18,6 +18,7 @@ launch_polybar() {
 set_fortune_scripts() {
   mkdir -p $HOME/.local/bin
   mv $HOME/.config/fortuneStart $HOME/.config/fortuneStop $HOME/.local/bin/
+  chmod +x $HOME/.local/bin/fortuneStart $HOME/.local/bin/fortuneStop
 }
 
 launch_picom() {
