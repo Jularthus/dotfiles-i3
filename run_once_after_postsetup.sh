@@ -37,6 +37,8 @@ set_fortune_scripts() {
   mkdir -p $HOME/.local/bin
   mv $HOME/.config/fortuneStart $HOME/.config/fortuneStop $HOME/.local/bin/
   chmod +x $HOME/.local/bin/fortuneStart $HOME/.local/bin/fortuneStop
+
+  mv $HOME/.config/fortuneStart.desktop $HOME/.config/fortuneStop.desktop $HOME/.local/share/applications/
 }
 
 launch_picom() {

@@ -12,10 +12,13 @@ CLASS_ICONS = {
     "Alacritty": "",
     "kitty": "",
     "Spotify": "",
-    "TelegramDesktop": "",
     "Thunar": "",
     "nvim": "",
-    "default": "",
+    "Discord": "",
+    "discord": "",
+    "Cider": "",
+    "cider": "",
+    "default": "",
 }
 
 
