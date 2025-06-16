@@ -195,3 +195,6 @@ client.focused          #112b11 #112b11 #ffffff #2e9ef4   #112b11
 # title bar border
 default_border pixel 0
 default_floating_border pixel 0
+
+# ws renamer
+exec --no-startup-id $HOME/.config/polybar/scripts/launch_ws_renamer.sh
