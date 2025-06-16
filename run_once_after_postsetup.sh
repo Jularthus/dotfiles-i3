@@ -21,7 +21,7 @@ launch_picom() {
 launch_ws_renamer() {
   echo -e "\e[1;31mLaunching: Custom WS Renamer (Python)\e[0m"
   python3 -m pip install i3ipc
-  nohup python3 $HOME/.config/polybar/scripts/ws_renamer.py &
+  nohup python3 $HOME/.config/polybar/scripts/ws_renamer.py >/dev/null 2>&1 &
 }
 
 kill_terminal() {
