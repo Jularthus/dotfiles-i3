@@ -6,6 +6,8 @@ fi
 
 touch $HOME/.cfg2
 
+source /tmp/cfg_profile
+
 launch_polybar() {
   echo -e "\e[1;31mRestarting: Polybar (and killing i3bar)\e[0m"
   chmod +x $HOME/.config/polybar/scripts/fortune.sh

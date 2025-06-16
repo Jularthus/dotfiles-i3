@@ -6,6 +6,8 @@ fi
 
 touch $HOME/.cfg1
 
+source /tmp/cfg_profile
+
 IS_NIX=false
 IS_FEDORA=false
 
