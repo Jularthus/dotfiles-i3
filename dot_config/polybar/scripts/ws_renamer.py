@@ -1,10 +1,9 @@
-#!/usr/bin/python
-
+#!/usr/bin/env python3
 import json
 import subprocess
+import re
 from collections import defaultdict
 
-# Mappage classe -> icône (Nerd Fonts / FontAwesome)
 CLASS_ICONS = {
     "firefox": "",
     "org.mozilla.firefox": "",
@@ -12,7 +11,10 @@ CLASS_ICONS = {
     "Code": "",
     "Alacritty": "",
     "kitty": "",
+    "Spotify": "",
+    "TelegramDesktop": "",
     "Thunar": "",
+    "nvim": "",
     "default": "",
 }
 
@@ -21,9 +23,16 @@ def map_icon(class_name):
     return CLASS_ICONS.get(class_name, CLASS_ICONS["default"])
 
 
-def get_i3_tree():
+def get_tree():
     result = subprocess.run(
         ["i3-msg", "-t", "get_tree"], capture_output=True, text=True
+    )
+    return json.loads(result.stdout)
+
+
+def get_workspaces():
+    result = subprocess.run(
+        ["i3-msg", "-t", "get_workspaces"], capture_output=True, text=True
     )
     return json.loads(result.stdout)
 
@@ -46,18 +55,28 @@ def collect_windows(node, current_ws=None):
     return windows
 
 
-def main():
-    tree = get_i3_tree()
+def normalize_name(name):
+    return re.match(r"^(\d+)", name).group(1) if re.match(r"^\d+", name) else name
+
+
+def rename_workspaces():
+    tree = get_tree()
     windows_by_ws = collect_windows(tree)
+    active_workspaces = get_workspaces()
 
-    output = []
-    for ws, classes in sorted(windows_by_ws.items()):
-        unique_icons = {map_icon(cls) for cls in classes}
-        if unique_icons:
-            output.append(f"{ws} {' '.join(sorted(unique_icons))}")
+    for ws in active_workspaces:
+        full_name = ws["name"]
+        base_name = normalize_name(full_name)
+        class_list = windows_by_ws.get(full_name, [])
 
-    print(" ".join(output))
+        icons = " ".join(map_icon(cls) for cls in class_list)
+        new_name = f"{base_name}: {icons}" if icons else base_name
+
+        if new_name != full_name:
+            subprocess.run(
+                ["i3-msg", f'rename workspace "{full_name}" to "{new_name}"']
+            )
 
 
 if __name__ == "__main__":
-    main()
+    rename_workspaces()
