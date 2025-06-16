@@ -31,6 +31,7 @@ install_packages() {
                         nixpkgs#kitty \
                         nixpkgs#fastfetch \
                         nixpkgs#bat \
+                        nixpkgs#rofi \
                         nixpkgs#picom \
                         nixpkgs#nodejs \
                         nixpkgs#sshfs \
@@ -40,7 +41,7 @@ install_packages() {
                         nixpkgs#ranger \
                         nixpkgs#gitkraken
   elif $IS_FEDORA; then
-    sudo dnf install -y zsh kitty git sshfs picom polybar pip fastfetch bat nodejs glow flameshot ranger cargo script neovim
+    sudo dnf install -y zsh kitty git sshfs rofi picom polybar pip fastfetch bat nodejs glow flameshot ranger cargo script neovim
     sudo dnf remove --noautoremove -y neovim
 
     # gitkraken manual
@@ -104,6 +105,5 @@ for i in $(seq 0 $((${#varArray[@]} - 1))); do
 
   if [ "$value" != "true" ]; then
     eval "${varFunc[$i]}"
-    if [ $CFG_DEBUG == true ]; then read; fi
   fi
 done
