@@ -1,8 +1,10 @@
 #!/bin/bash
 
-if [ -f $HOME/.cfg ]; then
+if [ -f $HOME/.cfg2 ]; then
   exit
 fi
+
+touch $HOME/.cfg2
 
 launch_polybar() {
   echo -e "\e[1;31mRestarting: Polybar (and killing i3bar)\e[0m"

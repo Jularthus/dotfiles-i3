@@ -1,10 +1,10 @@
 #!/bin/bash
 
-if [ -f $HOME/.cfg ]; then 
+if [ -f $HOME/.cfg1 ]; then 
   exit
 fi
 
-touch $HOME/.cfg
+touch $HOME/.cfg1
 
 IS_NIX=false
 IS_FEDORA=false
