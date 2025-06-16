@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 import i3ipc
-import subprocess
-import json
 import re
 from collections import defaultdict
 
+# Mapping class -> icône
 CLASS_ICONS = {
     "firefox": "",
     "org.mozilla.firefox": "",
@@ -35,9 +34,8 @@ def collect_windows(tree):
         if node.type == "workspace":
             current_ws = node.name
 
-        if node.window_properties and current_ws:
-            class_name = node.window_properties.get("class", "unknown")
-            windows[current_ws].append(class_name)
+        if node.window_class and current_ws:
+            windows[current_ws].append(node.window_class)
 
         for n in node.nodes + node.floating_nodes:
             walk(n, current_ws)
@@ -69,15 +67,12 @@ def main():
     def on_event(*_):
         rename_workspaces(i3)
 
-    # Surveille tous les événements utiles
     i3.on("window::new", on_event)
     i3.on("window::close", on_event)
     i3.on("window::move", on_event)
     i3.on("workspace::focus", on_event)
 
-    # Lancer une première fois
     rename_workspaces(i3)
-
     i3.main()
 
 
