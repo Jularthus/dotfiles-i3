@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=fortuneStart
+Exec=bash -c "$HOME/.local/bin/fortuneStart"
+Icon=utilities-terminal
+Terminal=false
+Type=Application
+Categories=Utility;
