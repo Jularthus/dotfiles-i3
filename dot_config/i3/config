@@ -196,5 +196,8 @@ client.focused          #112b11 #112b11 #ffffff #2e9ef4   #112b11
 default_border pixel 0
 default_floating_border pixel 0
 
+# icon ws renamer
+exec_always --no-startup-id python3 $HOME/.config/polybar/scripts/ws_renamer.py
+
 #wallpaper
 # exec --no-startup-id /run/current-system/sw/bin/feh --no-fehbg --bg-scale ~/.config/wallpaper/leaves2.png
