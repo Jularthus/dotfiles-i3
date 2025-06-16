@@ -16,11 +16,17 @@ launch_picom() {
   nohup picom >/dev/null 2>&1 &
 }
 
+launch_ws_renamer() {
+  echo -e "\e[1;31mLaunching: Custom WS Renamer (Python)\e[0m"
+  nohup python3 $HOME/.config/polybar/scripts/ws_renamer.py &
+}
+
 kill_terminal() {
   killall xfce4-terminal alacritty
 }
 
 launch_polybar
 launch_picom
+launch_ws_renamer
 i3 restart ; kitty --detach ;
 kill_terminal
