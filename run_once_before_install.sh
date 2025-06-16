@@ -91,9 +91,10 @@ install_ohmyzsh() {
 
 mount_fortune() {
   echo -e "\e[1;31mInstalling: Fortune folder (sshfs from ServeurKlein)\e[0m"
+  echo -e "DISABLED FOR NOW USE fortuneStart INSTEAD"
   mkdir -p $HOME/.config/fortune/
-  sshfs -o reconnect -p 8022 jularthus@jularthus.fr:/home/jularthus/AuCoin/fortune ~/.config/fortune ;
-  touch $HOME/.fortune
+  # sshfs -o reconnect -p 8022 jularthus@jularthus.fr:/home/jularthus/AuCoin/fortune ~/.config/fortune ;
+  # touch $HOME/.fortune
 }
 
 varArray=('CFG_NO_INSTALL' 'CFG_NO_FONTS' 'CFG_NO_WALLPAPER' 'CFG_NO_OHMYZSH' 'CFG_NO_FORTUNE')

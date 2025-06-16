@@ -1,5 +1,8 @@
 #!/bin/bash
 
+if [ ! -f $HOME/.config/fortune/fortune.txt ]; then
+  sshfs -o reconnect -p 8022 jularthus@jularthus.fr:/home/jularthus/AuCoin/fortune ~/.config/fortune ;
+fi
 touch $HOME/.fortune ;
 killall polybar ;
 nohup polybar >/dev/null 2>&1 &
