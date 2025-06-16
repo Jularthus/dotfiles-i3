@@ -15,6 +15,11 @@ launch_polybar() {
   nohup polybar >/dev/null 2>&1 &
 }
 
+set_fortune_scripts() {
+  mkdir -p $HOME/.local/bin
+  mv $HOME/.config/fortuneStart $HOME/.config/fortuneStop $HOME/.local/bin/
+}
+
 launch_picom() {
   echo -e "\e[1;31mLaunching: Picom\e[0m"
   nohup picom >/dev/null 2>&1 &
@@ -31,8 +36,8 @@ kill_terminal() {
   killall xfce4-terminal alacritty
 }
 
-varArray=('CFG_NO_POLYBAR' 'CFG_NO_PICOM' 'CFG_NO_WS_RENAMER' 'CFG_NO_KILL_TERMINAL')
-varFunc=('launch_polybar' 'launch_picom' 'launch_ws_renamer' 'kill_terminal')
+varArray=('CFG_NO_POLYBAR' 'CFG_NO_PICOM' 'CFG_NO_WS_RENAMER' 'CFG_NO_KILL_TERMINAL' 'CFG_NO_FORTUNE')
+varFunc=('launch_polybar' 'launch_picom' 'launch_ws_renamer' 'kill_terminal' 'set_fortune_scripts')
 
 for i in $(seq 0 $((${#varArray[@]} - 1))); do
   varname="${varArray[$i]}"

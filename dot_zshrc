@@ -26,9 +26,6 @@ alias cat="bat --paging=never --plain"
 alias lv=lvim
 alias :q=exit
 
-alias fortuneStart="touch $HOME/.fortune ; killall polybar ; nohup polybar >/dev/null 2>&1 &"
-alias fortuneStop="rm $HOME/.fortune ; killall polybar ; nohup polybar >/dev/null 2>&1 &"
-
 alias cdocker="docker run -it --rm -v $(pwd):/app c-dev-zsh-environment"
 
 export PATH=$HOME/.local/bin:$PATH
