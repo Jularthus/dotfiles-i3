@@ -89,8 +89,14 @@ mount_fortune() {
   touch $HOME/.fortune
 }
 
-install_packages
-install_fonts
-apply_wallpaper
-install_ohmyzsh
-mount_fortune
+varArray=('CFG_NO_INSTALL' 'CFG_NO_FONTS' 'CFG_NO_WALLPAPER' 'CFG_NO_OHMYZSH' 'CFG_NO_FORTUNE')
+varFunc=('install_packages' 'install_fonts' 'apply_wallpaper' 'install_ohmyzsh' 'mount_fortune')
+
+for i in $(seq 0 $((${#varArray[@]} - 1))); do
+  varname="${varArray[$i]}"
+  value="${!varname}"
+
+  if [ "$value" != "true" ]; then
+    eval "${varFunc[$i]}"
+  fi
+done

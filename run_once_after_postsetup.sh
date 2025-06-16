@@ -28,6 +28,18 @@ kill_terminal() {
   killall xfce4-terminal alacritty
 }
 
+varArray=('CFG_NO_POLYBAR' 'CFG_NO_PICOM' 'CFG_NO_WS_RENAMER' 'CFG_NO_KILL_TERMINAL')
+varFunc=('launch_polybar' 'launch_picom' 'launch_ws_renamer' 'kill_terminal')
+
+for i in $(seq 0 $((${#varArray[@]} - 1))); do
+  varname="${varArray[$i]}"
+  value="${!varname}"
+
+  if [ "$value" != "true" ]; then
+    eval "${varFunc[$i]}"
+  fi
+done
+
 launch_polybar
 launch_picom
 launch_ws_renamer
