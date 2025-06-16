@@ -37,6 +37,7 @@ for i in $(seq 0 $((${#varArray[@]} - 1))); do
 
   if [ "$value" != "true" ]; then
     eval "${varFunc[$i]}"
+    if [ $CFG_DEBUG == true ]; then read; fi
   fi
 done
 
