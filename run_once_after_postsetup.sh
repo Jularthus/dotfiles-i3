@@ -8,6 +8,11 @@ touch $HOME/.cfg2
 
 source /tmp/cfg_profile
 
+apply_wallpaper() {
+  echo -e "\e[1;31mApplying: Wallpaper\e[0m"
+  feh --no-fehbg --bg-scale $HOME/.config/wallpaper/cooper.png
+}
+
 install_rofi_fonts() {
    echo -e "\e[1;31mInstalling Rofi Fonts\e[0m"
 
@@ -57,8 +62,8 @@ kill_terminal() {
   killall xfce4-terminal alacritty
 }
 
-varArray=('CFG_NO_POLYBAR' 'CFG_NO_PICOM' 'CFG_NO_WS_RENAMER' 'CFG_NO_KILL_TERMINAL' 'CFG_NO_FORTUNE' 'CFG_NO_ROFI_FONTS')
-varFunc=('launch_polybar' 'launch_picom' 'launch_ws_renamer' 'kill_terminal' 'set_fortune_scripts' 'install_rofi_fonts')
+varArray=('CFG_NO_WALLPAPER' 'CFG_NO_POLYBAR' 'CFG_NO_PICOM' 'CFG_NO_WS_RENAMER' 'CFG_NO_KILL_TERMINAL' 'CFG_NO_FORTUNE' 'CFG_NO_ROFI_FONTS')
+varFunc=('apply_wallpaper' 'launch_polybar' 'launch_picom' 'launch_ws_renamer' 'kill_terminal' 'set_fortune_scripts' 'install_rofi_fonts')
 
 for i in $(seq 0 $((${#varArray[@]} - 1))); do
   varname="${varArray[$i]}"

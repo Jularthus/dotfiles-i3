@@ -79,11 +79,6 @@ install_fonts() {
   fi
 }
 
-apply_wallpaper() {
-  echo -e "\e[1;31mApplying: Wallpaper\e[0m"
-  feh --no-fehbg --bg-scale $HOME/.local/share/chezmoi/dot_config/wallpaper/leaves2.png
-}
-
 install_ohmyzsh() {
   echo -e "\e[1;31mInstalling: Oh-my-zsh\e[0m"
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -97,8 +92,8 @@ mount_fortune() {
   # touch $HOME/.fortune
 }
 
-varArray=('CFG_NO_INSTALL' 'CFG_NO_FONTS' 'CFG_NO_WALLPAPER' 'CFG_NO_OHMYZSH' 'CFG_NO_FORTUNE')
-varFunc=('install_packages' 'install_fonts' 'apply_wallpaper' 'install_ohmyzsh' 'mount_fortune')
+varArray=('CFG_NO_INSTALL' 'CFG_NO_FONTS' 'CFG_NO_OHMYZSH' 'CFG_NO_FORTUNE')
+varFunc=('install_packages' 'install_fonts' 'install_ohmyzsh' 'mount_fortune')
 
 for i in $(seq 0 $((${#varArray[@]} - 1))); do
   varname="${varArray[$i]}"
