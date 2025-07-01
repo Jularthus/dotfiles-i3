@@ -10,7 +10,7 @@ source /tmp/cfg_profile
 
 apply_wallpaper() {
   echo -e "\e[1;31mApplying: Wallpaper\e[0m"
-  feh --no-fehbg --bg-scale $HOME/.config/wallpaper/cooper.png
+  feh --no-fehbg --bg-scale $HOME/.config/wallpaper/cooper.jpeg
 }
 
 install_rofi_fonts() {
