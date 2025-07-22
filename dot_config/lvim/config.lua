@@ -5,9 +5,10 @@ lvim.plugins = {
   { "lunarvim/colorschemes" },
   { "sbdchd/neoformat" },
   { "vyfor/cord.nvim" },
+  { 'nvim-treesitter/nvim-treesitter-textobjects' },
 }
 
--- Cord.nvim config
+-- Cord.nvim config (discord rich presence)
 require('cord').setup {
   editor = {
     client = "lunarvim",
@@ -22,13 +23,8 @@ lvim.builtin.nvimtree.setup.actions = {
   },
 }
 
--- Neoformat configuration
-vim.cmd([[
-  augroup fmt
-    autocmd!
-    autocmd BufWritePre * undojoin | Neoformat
-  augroup END
-]])
+-- Auto format on save (disabled for now, use :Neoformat instead)
+-- lvim.format_on_save = true
 
 -- Disabling JS suggestions
 -- require('lspconfig').tsserver.setup({
@@ -43,17 +39,25 @@ vim.cmd([[
 lvim.builtin.which_key.mappings["t"] = {
   name = "+terminal",
   t = { '<cmd>ToggleTerm<CR>', "Open terminal" },
-  d = { '<cmd>TermExec cmd="dd"<CR>', "Open term and run DevDocker" },
+  d = { '<cmd>TermExec cmd="clear ; dd"<CR>', "Open term and run DevDocker" },
   h = { '<cmd>TermExec cmd="clear" dir=%:p:h<CR>', "Terminal in file dir" },
   r = { '<cmd>TermExec cmd="clear" dir=$(git rev-parse --show-toplevel)<CR>', "Terminal in project root" },
 }
 
--- add select shortcuts
-lvim.builtin.which_key.mappings["v"] = {
-  name = "+Select",
-  f = { '[{kVj%', "Select whole function" },
+-- add select shortcut V2
+lvim.builtin.treesitter.textobjects = {
+  select = {
+    enable = true,
+    lookahead = true,
+    keymaps = {
+      ["af"] = "@function.outer",
+      ["if"] = "@function.inner",
+    },
+  },
 }
 
--- formatting
--- lvim.format_on_save.enabled = true
--- lvim.format_on_save.pattern = { "*" }
+-- (DEPRECATED) add select shortcuts
+-- lvim.builtin.which_key.mappings["v"] = {
+--   name = "+Select",
+--   f = { '[{kVj%', "Select whole function" },
+-- }
