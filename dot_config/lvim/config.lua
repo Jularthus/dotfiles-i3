@@ -26,7 +26,7 @@ lvim.builtin.nvimtree.setup.actions = {
 -- Auto format on save (disabled for now, use :Neoformat instead)
 -- lvim.format_on_save = true
 
--- Disabling JS suggestions
+-- -- Disabling JS suggestions
 -- require('lspconfig').tsserver.setup({
 --     init_options = {
 --         preferences = {
@@ -44,7 +44,7 @@ lvim.builtin.which_key.mappings["t"] = {
   r = { '<cmd>TermExec cmd="clear" dir=$(git rev-parse --show-toplevel)<CR>', "Terminal in project root" },
 }
 
--- add select shortcut V2
+-- select function shortcut
 lvim.builtin.treesitter.textobjects = {
   select = {
     enable = true,
@@ -56,8 +56,28 @@ lvim.builtin.treesitter.textobjects = {
   },
 }
 
--- (DEPRECATED) add select shortcuts
--- lvim.builtin.which_key.mappings["v"] = {
---   name = "+Select",
---   f = { '[{kVj%', "Select whole function" },
--- }
+-- bottom bar options 
+lvim.builtin.lualine.style = "default"
+lvim.builtin.lualine.sections.lualine_x = {'encoding', 'filetype'} -- remove ugly unix logo
+
+-- EXPERIMENTAL
+local dap = require('dap')
+dap.adapters.lldb = {
+  type = 'executable',
+  command = '/opt/homebrew/opt/llvm/bin/lldb-dap',
+  name = 'lldb'
+}
+
+dap.configurations.c = {
+  {
+    name = "Launch file",
+    type = "lldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    args = {},
+  },
+}
