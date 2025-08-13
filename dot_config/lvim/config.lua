@@ -26,22 +26,17 @@ lvim.builtin.nvimtree.setup.actions = {
 -- Auto format on save (disabled for now, use :Neoformat instead)
 -- lvim.format_on_save = true
 
--- -- Disabling JS suggestions
--- require('lspconfig').tsserver.setup({
---     init_options = {
---         preferences = {
---             disableSuggestions = true,
---         },
---     },
--- })
-
 -- add terminal shortcut
+-- set properties
+lvim.builtin["terminal"].direction = "vertical"
+lvim.builtin["terminal"].size = function()
+  return math.floor(vim.o.columns * 0.3)
+end
+
 lvim.builtin.which_key.mappings["t"] = {
   name = "+terminal",
-  t = { '<cmd>ToggleTerm<CR>', "Open terminal" },
-  d = { '<cmd>TermExec cmd="clear ; dd"<CR>', "Open term and run DevDocker" },
-  h = { '<cmd>TermExec cmd="clear" dir=%:p:h<CR>', "Terminal in file dir" },
-  r = { '<cmd>TermExec cmd="clear" dir=$(git rev-parse --show-toplevel)<CR>', "Terminal in project root" },
+  t = { '<cmd>ToggleTerm dir=%:p:h<CR>', "Open terminal" },
+  h = { '<cmd>ToggleTerm dir=~<CR>', "Terminal in file dir" },
 }
 
 -- select function shortcut
