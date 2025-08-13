@@ -45,8 +45,8 @@ lvim.builtin.treesitter.textobjects = {
     enable = true,
     lookahead = true,
     keymaps = {
-      ["af"] = "@function.outer",
-      ["if"] = "@function.inner",
+      ["fa"] = "@function.outer",
+      ["fi"] = "@function.inner",
     },
   },
 }
