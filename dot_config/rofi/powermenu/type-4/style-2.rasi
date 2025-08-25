@@ -24,8 +24,8 @@ configuration {
     element-padding:             35px 40px;
     element-border-radius:       20px;
 
-    prompt-font:                 "JetBrainsMono Nerd Font 72";
-    textbox-font:                "JetBrainsMono Nerd Font 14";
+    prompt-font:                 "JetBrainsMono Nerd Font 46";
+    textbox-font:                "JetBrainsMono Nerd Font 18";
     element-text-font:           "feather 64";
 
     background-window:           black/30%;
