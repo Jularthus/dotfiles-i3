@@ -74,6 +74,9 @@ for i in $(seq 0 $((${#varArray[@]} - 1))); do
   fi
 done
 
+mkdir ~/.venvs
+python3 -m venv ~/.venvs/lvim
+
 i3 restart ; kitty --detach ;
 
 if [ "$CFG_NO_KILL_TERMINAL" != true ]; then kill_terminal; fi
