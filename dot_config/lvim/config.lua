@@ -23,6 +23,18 @@ lvim.builtin.nvimtree.setup.actions = {
   },
 }
 
+-- select function shortcut
+lvim.builtin.treesitter.textobjects = {
+  select = {
+    enable = true,
+    lookahead = true,
+    keymaps = {
+      ["fa"] = "@function.outer",
+      ["fi"] = "@function.inner",
+    },
+  },
+}
+
 -- Auto format on save (disabled for now, use :Neoformat instead)
 -- lvim.format_on_save = true
 
@@ -39,40 +51,48 @@ lvim.builtin.which_key.mappings["t"] = {
   h = { '<cmd>ToggleTerm dir=~<CR>', "Terminal in file dir" },
 }
 
--- select function shortcut
-lvim.builtin.treesitter.textobjects = {
-  select = {
-    enable = true,
-    lookahead = true,
-    keymaps = {
-      ["fa"] = "@function.outer",
-      ["fi"] = "@function.inner",
-    },
-  },
-}
-
 -- bottom bar options 
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.sections.lualine_x = {'encoding', 'filetype'} -- remove ugly unix logo
 
--- EXPERIMENTAL
+-- DEBUG
+-- Debug C
 local dap = require('dap')
 dap.adapters.lldb = {
   type = 'executable',
-  command = '/opt/homebrew/opt/llvm/bin/lldb-dap',
+  command = 'lldb-dap',
   name = 'lldb'
 }
 
 dap.configurations.c = {
   {
-    name = "Launch file",
     type = "lldb",
     request = "launch",
     program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+      return vim.fn.input('Path to executable (-g): ', vim.fn.getcwd() .. '/', 'file')
     end,
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
     args = {},
   },
 }
+
+-- Debug Python
+dap.adapters.python = {
+  type = "executable",
+  command = vim.fn.expand("~/.venvs/lvim/bin/python"),
+  -- command = "python3",
+  args = { "-m", "debugpy.adapter" },
+}
+
+dap.configurations.python = {
+  {
+    type = "python",
+    request = "launch",
+    program = "${file}",
+    pythonPath = function()
+      return "python3"
+    end,
+  },
+}
+
