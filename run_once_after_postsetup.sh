@@ -76,6 +76,7 @@ done
 
 mkdir ~/.venvs
 python3 -m venv ~/.venvs/lvim
+$HOME/.venvs/lvim/bin/pip install debugpy
 
 i3 restart ; kitty --detach ;
 
