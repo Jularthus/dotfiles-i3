@@ -74,9 +74,12 @@ for i in $(seq 0 $((${#varArray[@]} - 1))); do
   fi
 done
 
+install_python() {
 mkdir ~/.venvs
 python3 -m venv ~/.venvs/lvim
 $HOME/.venvs/lvim/bin/pip install debugpy
+}
+install_python()
 
 i3 restart ; kitty --detach ;
 
