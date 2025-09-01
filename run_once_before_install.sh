@@ -33,6 +33,7 @@ install_packages() {
                         nixpkgs#fastfetch \
                         nixpkgs#bat \
                         nixpkgs#rofi \
+                        nixpkgs#cargo \
                         nixpkgs#picom \
                         nixpkgs#nodejs \
                         nixpkgs#sshfs \
