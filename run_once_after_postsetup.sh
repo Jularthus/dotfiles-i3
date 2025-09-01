@@ -25,7 +25,7 @@ install_rofi_fonts() {
 		mkdir -p "$FONT_DIR"
 		cp -rf $DIR/fonts/* "$FONT_DIR"
 	fi
-	fc-cache
+	fc-cache > $HOME/outputFc.txt
 
   chmod +x $HOME/.config/rofi/launchers/type-2/launcher.sh > $HOME/outputChmod.txt
   chmod +x $HOME/.config/rofi/powermenu/type-4/powermenu.sh
