@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ -f $HOME/.cfg2 ]; then
   exit
