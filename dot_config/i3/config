@@ -200,5 +200,5 @@ default_border pixel 0
 default_floating_border pixel 0
 
 # ws renamer
-exec_always --no-startup-id python3 ~/.config/polybar/scripts/ws_renamer.py
+exec_always --no-startup-id $HOME/.venvs/lvim/bin/python3 ~/.config/polybar/scripts/ws_renamer.py
 # exec --no-startup-id $HOME/.config/polybar/scripts/launch_ws_renamer.sh >> ~/log_ws_renamer 2>&1
