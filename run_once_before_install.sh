@@ -38,7 +38,7 @@ install_packages() {
                         nixpkgs#nodejs \
                         nixpkgs#sshfs \
                         nixpkgs#glow \
-                        nixpkgs#lunarvim \
+                        # nixpkgs#lunarvim \
                         nixpkgs#flameshot \
                         nixpkgs#ranger \
                         nixpkgs#gitkraken --impure
