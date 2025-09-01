@@ -39,6 +39,7 @@ launch_polybar() {
 }
 
 set_fortune_scripts() {
+echo -e "\e[1;31mSetting Polybar scripts\e[0m"
   mkdir -p $HOME/.local/bin
   mv $HOME/.config/fortuneStart $HOME/.config/fortuneStop $HOME/.local/bin/
   chmod +x $HOME/.local/bin/fortuneStart $HOME/.local/bin/fortuneStop
