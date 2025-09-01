@@ -53,7 +53,10 @@ launch_picom() {
 
 launch_ws_renamer() {
   echo -e "\e[1;31mLaunching: Custom WS Renamer (Python)\e[0m"
-  python3 -m pip install i3ipc
+  mkdir ~/.venvs
+python3 -m venv ~/.venvs/lvim
+$HOME/.venvs/lvim/bin/pip install debugpy
+  $HOME/.venvs/lvim/bin/pip install i3ipc
   # chmod +x $HOME/.config/polybar/scripts/launch_ws_renamer.sh
   # nohup python3 $HOME/.config/polybar/scripts/ws_renamer.py >/dev/null 2>&1 &
 }
@@ -73,13 +76,6 @@ for i in $(seq 0 $((${#varArray[@]} - 1))); do
     eval "${varFunc[$i]}"
   fi
 done
-
-install_python() {
-mkdir ~/.venvs
-python3 -m venv ~/.venvs/lvim
-$HOME/.venvs/lvim/bin/pip install debugpy
-}
-install_python()
 
 i3 restart ; kitty --detach ;
 
