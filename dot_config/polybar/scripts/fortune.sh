@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ -e "$HOME/.fortune" ]; then
   file="$HOME/.config/fortune/fortune.txt"
