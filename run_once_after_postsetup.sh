@@ -41,10 +41,11 @@ launch_polybar() {
 set_fortune_scripts() {
 echo -e "\e[1;31mSetting Polybar scripts\e[0m"
   mkdir -p $HOME/.local/bin
-  mv $HOME/.config/fortuneStart $HOME/.config/fortuneStop $HOME/.local/bin/
+  mkdir -p $HOME/.local/share/applications/
+  cp $HOME/.config/polybar/scripts/fortuneStart $HOME/.config/polybar/scripts/fortuneStop $HOME/.local/bin/
   chmod +x $HOME/.local/bin/fortuneStart $HOME/.local/bin/fortuneStop
 
-  mv $HOME/.config/fortuneStart.desktop $HOME/.config/fortuneStop.desktop $HOME/.local/share/applications/
+  cp $HOME/.config/fortuneStart.desktop $HOME/.config/fortuneStop.desktop $HOME/.local/share/applications/
 }
 
 launch_picom() {
