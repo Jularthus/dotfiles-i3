@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ -f $HOME/.cfg1 ]; then 
   exit
@@ -26,6 +26,7 @@ fi
 install_packages() {
   echo -e "\e[1;31mInstalling: All packages\e[0m"
   if $IS_NIX; then
+  export NIXPKGS_ALLOW_UNFREE=1 
     nix profile install nixpkgs#polybar \
                         nixpkgs#zsh\
                         nixpkgs#kitty \
@@ -39,7 +40,7 @@ install_packages() {
                         nixpkgs#lunarvim \
                         nixpkgs#flameshot \
                         nixpkgs#ranger \
-                        nixpkgs#gitkraken
+                        nixpkgs#gitkraken --impure
   elif $IS_FEDORA; then
     sudo dnf install -y zsh kitty git sshfs rofi picom polybar pip fastfetch bat nodejs glow flameshot ranger cargo script neovim
     sudo dnf remove --noautoremove -y neovim
@@ -68,7 +69,7 @@ install_packages() {
 install_fonts() {
   echo -e "\e[1;31mInstalling: Fonts\e[0m"
   if $IS_NIX; then
-    nix profile install --expr 'with builtins.getFlake("flake:nixpkgs"); legacyPackages.x86_64-linux.nerdfonts.override { fonts = ["JetBrainsMono"]; }' --impure
+    nix profile install nixpkgs#nerd-fonts.jetbrains-mono
   elif $IS_FEDORA; then
     echo "NEED SUDO FOR INSTALLING FONTS"
     mkdir -p $HOME/.local/share/fonts/JetBrainsMono/
