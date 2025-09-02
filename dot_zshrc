@@ -27,11 +27,8 @@ alias lv=lvim
 alias r="ranger ."
 alias :q=exit
 
-alias cdocker="docker run -it --rm -v $(pwd):/app c-dev-zsh-environment"
-
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
-export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
 
 # * en zsh 
 unsetopt nomatch
@@ -51,44 +48,3 @@ kinit -f jules-arthus.klein@CRI.EPITA.FR
 cd ~
 sshfs -o reconnect -o volname=afs jules-arthus.klein@ssh.cri.epita.fr:/afs/cri.epita.fr/user/j/ju/jules-arthus.klein/u/ afs
 }
-
-# files.jularthus.fr filesystem
-fs() {
-  local action="$1"
-  local arg="$2"
-
-  # Extraire le token depuis une URL ou utiliser directement
-  extract_token() {
-    echo "$1" | sed -E 's|.*/f/||'
-  }
-
-  case "$action" in
-    upload)
-      curl -sf -F "file=@$arg" https://files.jularthus.fr/api/upload \
-        | tee >(pbcopy 2>/dev/null || xsel --clipboard 2>/dev/null)
-          # macos                     # linux
-      ;;
-    delete)
-      local token
-      token=$(extract_token "$arg")
-      curl -sf -X DELETE "https://files.jularthus.fr/api/token/$token" && echo "OK - File deleted"
-      ;;
-    *)
-      echo "Usage : fs upload <file> | fs delete <token|url>"
-      ;;
-  esac
-}
-
-# devdocker (see github)
-function devdocker() {
-    if [ $# -eq 0 ]; then
-        docker run --platform linux/amd64 -it --rm -v "$(pwd)":/app dev-env-docker
-    else
-        if [ "$1" = "check" ] && [ -n "$2" ]; then
-            docker run --platform linux/amd64 --rm -v "$(pwd)":/app dev-env-docker sh -c "valgrind --leak-check=full --show-leak-kinds=all ./$2"
-        else
-            docker run --platform linux/amd64 --rm -v "$(pwd)":/app dev-env-docker sh -c "$*"
-        fi
-    fi
-}
-alias dd=devdocker
