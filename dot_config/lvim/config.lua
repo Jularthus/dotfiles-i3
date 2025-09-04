@@ -55,6 +55,15 @@ lvim.builtin.which_key.mappings["t"] = {
 lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.sections.lualine_x = {'encoding', 'filetype'} -- remove ugly unix logo
 
+-- LSP
+lvim.lsp.automatic_configuration.skipped_servers = { "clangd" }
+-- Clangd
+
+local lspconfig = require("lspconfig")
+lspconfig.clangd.setup {
+  cmd = { "/run/current-system/sw/bin/clangd", "--background-index" }
+}
+
 -- DEBUG
 -- Debug C
 local dap = require('dap')
