@@ -40,8 +40,8 @@ install_packages() {
                         nixpkgs#glow \
                         nixpkgs#flameshot \
                         nixpkgs#ranger \
-                        github:nixos/nixpkgs/c5dd43934613ae0f8ff37c59f61c507c2e8f980d#neovim \
-                        nixpkgs#gitkraken --impure
+                        #github:nixos/nixpkgs/c5dd43934613ae0f8ff37c59f61c507c2e8f980d#neovim \
+                        #nixpkgs#gitkraken --impure
 
   curl https://raw.githubusercontent.com/LunarVim/LunarVim/refs/heads/master/utils/installer/install.sh | bash -s -- -y
   elif $IS_FEDORA; then
