@@ -56,8 +56,8 @@ launch_picom() {
 launch_ws_renamer() {
   echo -e "\e[1;31mLaunching: Custom WS Renamer (Python)\e[0m"
   mkdir ~/.venvs
-python3 -m venv ~/.venvs/lvim
-$HOME/.venvs/lvim/bin/pip install debugpy
+  python3 -m venv ~/.venvs/lvim
+  $HOME/.venvs/lvim/bin/pip install debugpy
   $HOME/.venvs/lvim/bin/pip install i3ipc
   # chmod +x $HOME/.config/polybar/scripts/launch_ws_renamer.sh
   # nohup python3 $HOME/.config/polybar/scripts/ws_renamer.py >/dev/null 2>&1 &

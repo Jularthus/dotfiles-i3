@@ -1,5 +1,4 @@
 lvim.transparent_window = true
-lvim.colorscheme = "darkplus"
 
 lvim.plugins = {
   { "lunarvim/colorschemes" },
@@ -7,6 +6,8 @@ lvim.plugins = {
   { "vyfor/cord.nvim" },
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
 }
+
+lvim.colorscheme = "darkplus"
 
 -- Cord.nvim config (discord rich presence)
 require('cord').setup {
@@ -26,8 +27,6 @@ lvim.builtin.nvimtree.setup.actions = {
 -- select function shortcut
 lvim.builtin.treesitter.textobjects = {
   select = {
-    enable = true,
-    lookahead = true,
     keymaps = {
       ["fa"] = "@function.outer",
       ["fi"] = "@function.inner",
@@ -48,7 +47,7 @@ end
 lvim.builtin.which_key.mappings["t"] = {
   name = "+terminal",
   t = { '<cmd>ToggleTerm dir=%:p:h<CR>', "Open terminal" },
-  h = { '<cmd>ToggleTerm dir=~<CR>', "Terminal in file dir" },
+  h = { '<cmd>ToggleTerm dir=~<CR>', "Terminal in home dir" },
 }
 
 -- bottom bar options 
@@ -56,10 +55,8 @@ lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.sections.lualine_x = {'encoding', 'filetype'} -- remove ugly unix logo
 
 -- CONFIG PISCINE
-lvim.lsp.disable = true
-lvim.lsp.automatic_configuration.skipped_servers = { "all" }
 lvim.lsp.automatic_servers_installation = false
-lvim.lsp.installer.setup.automatic_installation = false
+lvim.builtin.cmp.sources = { name="path" }
 
 -- -- LSP
 -- lvim.lsp.automatic_configuration.skipped_servers = { "clangd" }
