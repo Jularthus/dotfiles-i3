@@ -94,7 +94,7 @@ dap.configurations.c = {
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
     args = function() 
-      local args = vin.split(input1, " +")
+      local args = vim.split(input1, " +")
       table.remove(args, 1)
       return args
     end,
