@@ -60,7 +60,7 @@ wk.add( {
 
 require("toggleterm").setup({
   direction = "vertical",
-  size = function(term)
+  size = function()
     return math.floor(vim.o.columns * 0.3)
   end,
 })

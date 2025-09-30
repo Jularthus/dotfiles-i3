@@ -8,6 +8,7 @@ lvim.plugins = {
 }
 
 lvim.colorscheme = "darkplus"
+lvim.builtin.project.manual_mode = true
 
 -- Cord.nvim config (discord rich presence)
 require('cord').setup {
@@ -87,7 +88,8 @@ dap.configurations.c = {
     type = "gdb",
     request = "launch",
     program = function()
-      return vim.fn.input('Path to executable (-g): ', vim.fn.getcwd() .. '/', 'file')
+      -- return vim.fn.input('Path to executable (-g): ', vim.fn.getcwd() .. '/a.out', 'file')
+      return vim.fn.getcwd() .. '/a.out'
     end,
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
