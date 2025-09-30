@@ -39,7 +39,7 @@ lvim.builtin.treesitter.textobjects = {
 
 -- add terminal shortcut
 -- set properties
-lvim.builtin["terminal"].direction = "vertical"
+lvim.builtin["terminal"].direction = "horizontal"
 lvim.builtin["terminal"].size = function()
   return math.floor(vim.o.columns * 0.3)
 end
