@@ -108,3 +108,7 @@ for i in $(seq 0 $((${#varArray[@]} - 1))); do
     eval "${varFunc[$i]}"
   fi
 done
+
+if $IS_NIX; then
+	rm -rf ~/.bashrc ~/.configa
+fi

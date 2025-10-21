@@ -82,3 +82,4 @@ done
 i3 restart ; kitty --detach ;
 
 if [ "$CFG_NO_KILL_TERMINAL" != true ]; then kill_terminal; fi
+exit 0;
