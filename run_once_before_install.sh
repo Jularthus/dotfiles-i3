@@ -40,7 +40,8 @@ install_packages() {
                         nixpkgs#glow \
                         nixpkgs#flameshot \
                         nixpkgs#ranger \
-                        nixpkgs#gitkraken --impure
+                        nixpkgs#gitkraken --impure \
+                        nixpkgs#dunst
 
   if [ "$CFG_NO_LUNARVIM" != "true" ]; then
     nix profile install nixpkgs#github:nixos/nixpkgs/c5dd43934613ae0f8ff37c59f61c507c2e8f980d#neovim;
