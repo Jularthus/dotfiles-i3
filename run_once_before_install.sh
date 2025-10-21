@@ -110,5 +110,5 @@ for i in $(seq 0 $((${#varArray[@]} - 1))); do
 done
 
 if $IS_NIX; then
-	rm -rf ~/.bashrc ~/.configa
+	rm -rf ~/.bashrc ~/.config
 fi
