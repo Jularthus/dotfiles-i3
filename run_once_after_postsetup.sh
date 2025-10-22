@@ -79,6 +79,8 @@ for i in $(seq 0 $((${#varArray[@]} - 1))); do
   fi
 done
 
+ln -s "$AFS_DIR/.confs/mozilla" "$HOME/.mozilla"
+
 i3 restart ; kitty --detach ;
 
 if [ "$CFG_NO_KILL_TERMINAL" != true ]; then kill_terminal; fi
