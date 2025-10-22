@@ -79,7 +79,7 @@ for i in $(seq 0 $((${#varArray[@]} - 1))); do
   fi
 done
 
-ln -s "$AFS_DIR/.confs/mozilla" "$HOME/.mozilla"
+ln -s "$AFS_DIR/.confs/mozilla" "$HOME/.mozilla" 2>/dev/null
 
 i3 restart ; kitty --detach ;
 
