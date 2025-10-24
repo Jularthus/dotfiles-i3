@@ -67,8 +67,8 @@ kill_terminal() {
   killall xfce4-terminal alacritty
 }
 
-varArray=('CFG_NO_WALLPAPER' 'CFG_NO_POLYBAR' 'CFG_NO_PICOM' 'CFG_NO_WS_RENAMER' 'CFG_NO_KILL_TERMINAL' 'CFG_NO_FORTUNE' 'CFG_NO_ROFI_FONTS')
-varFunc=('apply_wallpaper' 'launch_polybar' 'launch_picom' 'launch_ws_renamer' 'kill_terminal' 'set_fortune_scripts' 'install_rofi_fonts')
+varArray=('CFG_NO_WALLPAPER' 'CFG_NO_POLYBAR' 'CFG_NO_PICOM' 'CFG_NO_WS_RENAMER' 'CFG_NO_FORTUNE' 'CFG_NO_ROFI_FONTS')
+varFunc=('apply_wallpaper' 'launch_polybar' 'launch_picom' 'launch_ws_renamer' 'set_fortune_scripts' 'install_rofi_fonts')
 
 for i in $(seq 0 $((${#varArray[@]} - 1))); do
   varname="${varArray[$i]}"
@@ -79,6 +79,9 @@ for i in $(seq 0 $((${#varArray[@]} - 1))); do
   fi
 done
 
+ln -s "$AFS_DIR/.confs/mozilla" "$HOME/.mozilla" 2>/dev/null
+
 i3 restart ; kitty --detach ;
 
 if [ "$CFG_NO_KILL_TERMINAL" != true ]; then kill_terminal; fi
+exit 0;
