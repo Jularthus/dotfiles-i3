@@ -81,7 +81,7 @@ done
 
 ln -s "$AFS_DIR/.confs/mozilla" "$HOME/.mozilla" 2>/dev/null
 
-i3 restart ; kitty -1 asciiquarium -t;
+i3 restart ; kitty --detach "asciiquarium -t";
 
 if [ "$CFG_NO_KILL_TERMINAL" != true ]; then kill_terminal; fi
 exit 0;
