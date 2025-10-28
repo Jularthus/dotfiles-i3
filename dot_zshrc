@@ -26,6 +26,10 @@ alias cat="bat --paging=never --plain"
 alias lv=lvim
 alias r="ranger ."
 alias :q=exit
+alias cls="printf '\033[2J\033[3J\033[1;1H'"
+alias clear="printf '\033[2J\033[3J\033[1;1H'"
+alias gpft="git push --follow-tags"
+alias gcc="gcc -std=c99 -pedantic -Werror -Wall -Wextra -Wvla -g -fsanitize=address"
 
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
