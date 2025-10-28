@@ -41,6 +41,8 @@ install_packages() {
                         nixpkgs#flameshot \
                         nixpkgs#ranger \
                         nixpkgs#gitkraken --impure \
+                        nixpkgs#lazygit \
+                        nixpkgs#asciiquarium-transparent \
                         nixpkgs#dunst
 
   if [ "$CFG_NO_LUNARVIM" != "true" ]; then
