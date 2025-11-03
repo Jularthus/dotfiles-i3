@@ -54,6 +54,8 @@ def rename_workspaces(i3):
 
     for ws in workspaces:
         full_name = ws.name
+        if full_name == "i3lock":
+            return
         base_name = normalize_name(full_name)
         class_list = windows_by_ws.get(full_name, [])
 
