@@ -80,6 +80,7 @@ for i in $(seq 0 $((${#varArray[@]} - 1))); do
 done
 
 ln -s "$AFS_DIR/.confs/mozilla" "$HOME/.mozilla" 2>/dev/null
+cp ~/afs/RADNOM_STUF/discordo ~/.local/bin/
 
 i3 restart ; kitty --detach;
 
