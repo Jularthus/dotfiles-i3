@@ -46,6 +46,7 @@ echo -e "\e[1;31mSetting Polybar scripts\e[0m"
   chmod +x $HOME/.local/bin/fortuneStart $HOME/.local/bin/fortuneStop
 
   cp $HOME/.config/fortuneStart.desktop $HOME/.config/fortuneStop.desktop $HOME/.local/share/applications/
+  $($HOME/.local/bin/fortuneStart) && echo "Fortune lancée!"
 }
 
 launch_picom() {
