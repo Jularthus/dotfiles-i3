@@ -66,7 +66,8 @@ lvim.builtin.lualine.style = "default"
 lvim.builtin.lualine.sections.lualine_x = {'encoding', 'filetype'} -- remove ugly unix logo
 
 -- LSP
-lvim.lsp.automatic_configuration.skipped_servers = { "clangd" }
+lvim.lsp.installer.setup.automatic_installation = false
+lvim.lsp.automatic_configuration.skipped_servers = { "all" }
 -- Clangd
 
 local lspconfig = require("lspconfig")
