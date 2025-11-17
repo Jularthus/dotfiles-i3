@@ -46,9 +46,8 @@ install_packages() {
                         nixpkgs#dunst
 
   if [ "$CFG_NO_LUNARVIM" != "true" ]; then
-	  tar xvf ~/afs/.confs/lvim.tar.gz
-    #nix profile install github:nixos/nixpkgs/c5dd43934613ae0f8ff37c59f61c507c2e8f980d#neovim;
-    #curl https://raw.githubusercontent.com/LunarVim/LunarVim/refs/heads/master/utils/installer/install.sh | bash -s -- -y;
+    tar xvf ~/afs/.confs/lvim.tar.gz
+    nix profile install github:nixos/nixpkgs/c5dd43934613ae0f8ff37c59f61c507c2e8f980d#neovim;
   fi
 
   elif $IS_FEDORA; then
