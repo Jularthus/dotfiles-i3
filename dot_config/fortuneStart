@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -f $HOME/.config/fortune/fortune.txt ]; then
-  sshfs -o reconnect -p 8022 jularthus@jularthus.fr:/home/jularthus/AuCoin/fortune ~/.config/fortune ;
+  sshfs -o reconnect -p 8022 jularthus@jularthus.fr:/home/jularthus/fortune ~/.config/fortune ;
 fi
 touch $HOME/.fortune ;
 killall polybar ;
