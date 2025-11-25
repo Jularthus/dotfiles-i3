@@ -75,6 +75,16 @@ lspconfig.clangd.setup {
   cmd = { "/run/current-system/sw/bin/clangd", "--background-index" }
 }
 
+lspconfig.pyright.setup {
+    cmd = { "/home/jules-arthus.klein/.venvs/lvim/bin/pyright-langserver", "--stdio" },
+    settings = {
+      python = {
+        venvPath = "/home/jules-arthus.klein/.venvs",
+            venv = "lvim",
+      },
+    },
+}
+
 -- DEBUG
 -- Debug C
 local dap = require('dap')
