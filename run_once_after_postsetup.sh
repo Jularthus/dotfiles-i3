@@ -59,6 +59,7 @@ launch_ws_renamer() {
   mkdir ~/.venvs
   python3 -m venv ~/.venvs/lvim
   $HOME/.venvs/lvim/bin/pip install debugpy
+  $HOME/.venvs/lvim/bin/pip install pyright
   $HOME/.venvs/lvim/bin/pip install i3ipc
   # chmod +x $HOME/.config/polybar/scripts/launch_ws_renamer.sh
   # nohup python3 $HOME/.config/polybar/scripts/ws_renamer.py >/dev/null 2>&1 &
