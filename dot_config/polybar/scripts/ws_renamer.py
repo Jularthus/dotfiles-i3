@@ -3,12 +3,9 @@ import i3ipc
 import re
 from collections import defaultdict
 
-# Mapping class -> icône
 CLASS_ICONS = {
     "firefox": "",
     "org.mozilla.firefox": "",
-    "code": "",
-    "Code": "",
     "Alacritty": "",
     "kitty": "",
     "Spotify": "",
