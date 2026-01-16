@@ -27,23 +27,25 @@ install_packages() {
   echo -e "\e[1;31mInstalling: All packages\e[0m"
   if $IS_NIX; then
   export NIXPKGS_ALLOW_UNFREE=1 
-    nix profile install nixpkgs#polybar \
-                        nixpkgs#zsh\
-                        nixpkgs#kitty \
-                        nixpkgs#fastfetch \
-                        nixpkgs#bat \
-                        nixpkgs#rofi \
-                        nixpkgs#cargo \
-                        nixpkgs#picom \
-                        nixpkgs#nodejs \
-                        nixpkgs#sshfs \
-                        nixpkgs#glow \
-                        nixpkgs#flameshot \
-                        nixpkgs#ranger \
-                        nixpkgs#gitkraken --impure \
-                        nixpkgs#lazygit \
-                        nixpkgs#asciiquarium-transparent \
-                        nixpkgs#dunst
+  nix profile install nixpkgs#polybar \
+      nixpkgs#fd \
+      nixpkgs#ripgreg \
+      nixpkgs#zsh\
+      nixpkgs#kitty \
+      nixpkgs#fastfetch \
+      nixpkgs#bat \
+      nixpkgs#rofi \
+      nixpkgs#cargo \
+      nixpkgs#picom \
+      nixpkgs#nodejs \
+      nixpkgs#sshfs \
+      nixpkgs#glow \
+      nixpkgs#flameshot \
+      nixpkgs#ranger \
+      nixpkgs#gitkraken --impure \
+      nixpkgs#lazygit \
+      nixpkgs#asciiquarium-transparent \
+      nixpkgs#dunst
 
   if [ "$CFG_NO_LUNARVIM" != "true" ]; then
     tar xvf ~/afs/.confs/lvim.tar.gz
