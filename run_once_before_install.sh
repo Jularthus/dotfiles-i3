@@ -29,7 +29,7 @@ install_packages() {
   export NIXPKGS_ALLOW_UNFREE=1 
   nix profile install nixpkgs#polybar \
       nixpkgs#fd \
-      nixpkgs#ripgreg \
+      nixpkgs#ripgrep \
       nixpkgs#zsh\
       nixpkgs#kitty \
       nixpkgs#fastfetch \
