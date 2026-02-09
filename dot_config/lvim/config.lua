@@ -113,7 +113,6 @@ dap.configurations.c = {
      args = function() 
       input1 = vim.fn.input("Arguments: ")
       local args = vim.split(input1, " +")
-      table.remove(args, 1)
       return args
     end,
   },
