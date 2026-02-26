@@ -37,6 +37,13 @@ export PATH=$HOME/.cargo/bin:$PATH
 # * en zsh 
 unsetopt nomatch
 
+gt() {
+    EXO=$(basename $(pwd))
+    TAG=$(($(git tag | grep $EXO | wc -l)+1)) 
+    git tag -ma $EXO-$TAG
+    echo "Tagged: $EXO-$TAG"
+}
+
 # git add commit push
 gacp() {
   git add -A
